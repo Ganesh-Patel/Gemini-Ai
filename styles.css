@@ -1,0 +1,252 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: rgb(30, 33, 38);
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Left Header Styles */
+.left-header-container {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(30, 33, 38);
+    padding: 16px;
+    gap: 1rem;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+}
+.setting-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.left-header-item{
+    display: flex;
+    gap: 1rem;
+}
+.new-chat {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.wider_left_header_content {
+    padding-left: 10px;
+}
+
+/* Right Container Styles */
+.right-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #131314;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #131314;
+}
+.right-header{
+    display: flex;
+    gap: 1.5rem;
+}
+.custom-icon {
+    width: 44px;
+    height: 44px;
+    fill: white;
+}
+
+.geminiadvbtn{
+    background-color: #37393B;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    border: none;
+    width: 10rem;
+}
+.geminiadvbtn:hover{
+    background-color:aliceblue;
+    color: #1e2126;
+}
+.gemini-box {
+    background-color: rgb(59, 68, 86);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.gemini-box-container {
+    display: none;
+    background-color: rgb(59, 68, 86);
+    position: absolute;
+    top: 40px;
+    left: 0;
+    border-radius: 8px;
+    padding: 10px;
+    width: 200px;
+}
+
+.gemini-box:hover .gemini-box-container {
+    display: block;
+}
+
+.gemini-box-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.gemini-box-item:hover {
+    background-color: rgb(77, 77, 77);
+}
+
+.icon-img {
+    width: 24px;
+    height: 24px;
+}
+
+.user-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.center-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    flex-grow: 1;
+    padding: 6px;
+    border: none;
+}
+
+.gradient-text {
+    font-size: 4.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgb(243, 165, 165), rgb(240, 23, 70));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hmhytext{
+    font-size: 50px;
+    color: #444746;
+}
+.text-gray {
+    color: rgb(112, 122, 138);
+}
+
+.options-container {
+    display: flex;
+    gap: 10px;
+}
+
+.option-card {
+    background-color: rgb(59, 68, 86);
+    padding: 20px;
+    border-radius: 8px;
+    height: 140px;
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    cursor: pointer;
+    text-align: center;
+}
+
+.option-card:hover {
+    background-color: rgb(77, 77, 77);
+}
+
+.option-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-container {
+    background-color: #131314;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.text-white{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+.footer-search-box {
+    display: flex;
+    align-items: center;
+    background-color:#1E1F20;
+    border-radius: 30px;
+    padding: 12px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.search-input {
+    background: #1E1F20;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 10px;
+    color: white;
+    width:50rem;
+
+}
+
+.search-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.send-button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+   
+}
+.sendbtnsvg{
+    fill: white;
+}
+#disclamier{
+    font-size: 12px;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.icon-lg {
+    width: 32px;
+    height: 32px;
+}
