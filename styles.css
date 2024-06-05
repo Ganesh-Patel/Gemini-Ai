@@ -128,6 +128,11 @@ body {
     height: 32px;
     border-radius: 50%;
 }
+.user-profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
 
 .center-div {
     display: flex;
@@ -137,8 +142,13 @@ body {
     flex-grow: 1;
     padding: 6px;
     border: none;
+    gap: 5px;
 }
-
+.outdiv{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .gradient-text {
     font-size: 4.5rem;
     font-weight: bold;
@@ -184,9 +194,9 @@ body {
 
 .footer-container {
     background-color: #131314;
-    padding: 10px;
     display: flex;
     justify-content: center;
+    margin-top: 0;
 }
 .text-white{
     display: flex;
