@@ -10,7 +10,7 @@ body {
 
 /* Left Header Styles */
 .left-header-container {
-    width: 260px;
+    width: 15%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,10 +47,13 @@ body {
 
 /* Right Container Styles */
 .right-container {
+    max-width: calc(100%-15%);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     background-color: #131314;
+    overflow-y: auto; 
+    padding: 0px 60px;
 }
 
 .top-header {
@@ -136,19 +139,61 @@ body {
 
 .center-div {
     display: flex;
+    height: auto;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; 
     flex-grow: 1;
-    padding: 6px;
+    padding: 16px; /* Increased padding */
     border: none;
-    gap: 5px;
+    gap: 15px; /* Increased gap */
 }
-.outdiv{
+.outdiv {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px; /* Increased gap */
+    padding: 160px; /* Added padding */
+    margin: 16px 0; /* Added margin */
+    background-color: #2a2c2f; /* Added background color */
+    border-radius: 8px; /* Added border radius */
+    line-height: 1.6; /* Improved line height */
+    word-wrap: break-word; /* Ensure words break correctly */
+    white-space: pre-wrap; /* Preserve whitespace */
 }
+.displayContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 50px;
+}
+
+.response-container {
+    padding: 80px;
+}
+
+.user-profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.user-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.user-input {
+    font-weight: bold;
+}
+
+.gemini-label {
+    font-weight: bold;
+}
+
+
+/* Additional Styles */
 .gradient-text {
     font-size: 4.5rem;
     font-weight: bold;
@@ -223,7 +268,6 @@ body {
     padding: 10px;
     color: white;
     width:50rem;
-
 }
 
 .search-icons {
@@ -238,7 +282,6 @@ body {
     outline: none;
     cursor: pointer;
     padding: 10px;
-   
 }
 .sendbtnsvg{
     fill: white;
@@ -259,4 +302,137 @@ body {
 .icon-lg {
     width: 32px;
     height: 32px;
+}
+@media (max-width: 768px) {
+    .left-header-container {
+        display: none;
+    }
+
+    .top-header {
+        justify-content: space-between;
+    }
+
+    .top-header .right-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .right-header .user-img {
+        display: block;
+    }
+
+    .custom-icon {
+        display: block;
+    }
+
+    .options-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .option-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .footer-container {
+        padding: 20px;
+    }
+
+    .footer-search-box {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .right-container {
+        padding: 10px;
+    }
+
+    .center-div {
+        padding: 16px;
+    }
+
+    .outdiv {
+        padding: 20px;
+    }
+}
+
+/* Additional Media Queries for Smaller Devices */
+@media (max-width: 480px) {
+    .left-header{
+        display: none;
+    }
+    .geminiadvbtn{
+        display: none;
+    }
+    .top-header {
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    /* .top-header .right-header {
+        flex-direction: column;
+        align-items: center;
+    } */
+    .gradient-text{
+        font-size: 18px;
+    }
+    .hmhytext{
+        font-size: 17px;
+        color: #444746;
+    }
+    .options-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .option-card {
+        width: 100%;
+        max-width: 125px;
+        height: 70px;
+    }
+
+    .footer-container {
+        padding: 10px;
+    }
+
+    .footer-search-box {
+        width: 100%;
+        /* flex-direction: column; */
+        align-items: center;
+        height: 15px;
+    }
+
+    .search-icons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 2px;
+
+    }
+
+    .right-container {
+        padding: 5px;
+    }
+
+    .center-div {
+        padding: 10px;
+    }
+
+    .outdiv {
+        padding: 10px;
+    }
+    .response-div{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
 }
