@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body class="body-class">
@@ -76,7 +77,7 @@
 
         <!-- center div -->
         <div class="center-div">
-            <span id="displayContainer" class="display-container">
+            <div id="displayContainer" class="display-container">
                 <h1 class="gradient-text">Hello, Ganesh</h1>
                 <h1 class="hmhytext">How can I help you today?</h1>
                 <div class="options-container">
@@ -93,7 +94,7 @@
                         Brainstorm a tagline for my online store
                     </div>
                 </div>
-            </span>
+            </div>
         </div>
 
         <!--footer search box  -->
@@ -142,12 +143,13 @@
 
         const API_KEY = "AIzaSyD5mX0yRLvanvZicir6kcC7JGQhBJ06nxY";
         const genAI = new GoogleGenerativeAI(API_KEY);
-        var i=0;
+        let i = 0;
 
         const searchBox = document.getElementById("searchBox");
         const sendButton = document.querySelector(".send-button");
-        let container = document.querySelector(".center-div");
-        let displayContainer = document.getElementById("displayContainer");
+        const formElement = document.getElementById("formElement");
+        const displayContainer = document.getElementById("displayContainer");
+        console.log(displayContainer);
 
         sendButton.addEventListener("click", runCode);
         formElement.addEventListener("submit", function (event) {
@@ -155,9 +157,12 @@
             runCode();
         });
 
+        function stripHTML(html) {
+            let doc = new DOMParser().parseFromString(html, 'text/html');
+            return doc.body.textContent || "";
+        }
 
         async function runCode() {
-   
             const model = await genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
             let userInput = searchBox.value.trim();
@@ -170,13 +175,14 @@
             try {
                 const result = await model.generateContent(prompt);
                 const response = await result.response;
-                console.log(response);
-                const text = await response.text();
-                console.log(text);
-                if(i===0){
+                const markdownText = await response.text();
+                const htmlText = marked.parse(markdownText);
+                const plainText = htmlText;
+
+                if (i === 0) {
                     displayContainer.innerHTML = "";
                 }
-       
+
                 let userProfileContainer = document.createElement("div");
                 userProfileContainer.classList.add("user-profile-container");
 
@@ -186,29 +192,22 @@
                 userProfileContainer.appendChild(userProfileImg);
 
                 let userInputDiv = document.createElement("div");
-                userInputDiv.innerText = userInput;
-                userProfileContainer.appendChild(userInputDiv);
+                userInputDiv.innerHTML = `<strong>You:</strong> ${userInput}`;
+
+                let responseDiv = document.createElement("div");
+                responseDiv.classList.add("response-div");
+                responseDiv.innerHTML = `<strong>Gemini:</strong> ${plainText}`;
 
                 displayContainer.appendChild(userProfileContainer);
+                displayContainer.appendChild(userInputDiv);
+                displayContainer.appendChild(responseDiv);
 
-                let outputDiv = document.createElement("div");
-                outputDiv.classList.add("outdiv");
-                outputDiv.innerHTML = `${text}`;
-                displayContainer.style.padding='100';
-                displayContainer.style.justifyContent='left';
-                const centerDiv = document.querySelector(".center-div");
-                    centerDiv.style.alignItems = "left";
-                    centerDiv.style.padding = "80px";
-                displayContainer.appendChild(outputDiv);
                 i++;
             } catch (error) {
                 console.error("Error generating content:", error);
             }
         }
-
-
     </script>
-
 </body>
 
 </html>
