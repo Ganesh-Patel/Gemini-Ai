@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body class="body-class">
@@ -27,7 +27,7 @@
                 <span class="material-symbols-outlined">
                     add
                 </span>
-                <span class="wider_left_header_content">New chat</span>
+                <span id="new-chat" class="wider_left_header_content">New chat</span>
             </div>
         </div>
         <div class="setting-container">
@@ -57,17 +57,40 @@
 
     <div id="right" class="right-container">
         <header class="top-header">
-            <div class="left-header">
-
-                <h2> Gemini </h2>
-                <svg class="custom-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                    width="24px" fill="#5f6368">
-                    <path d="M480-360 280-560h400L480-360Z" />
-                </svg>
-
+            <div class="left-header" id="gemini-1">
+                <div class="header-content">
+                    <h2> Gemini</h2>
+                    <svg class="custom-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                        width="24px" fill="#5f6368">
+                        <path d="M480-360 280-560h400L480-360Z" />
+                    </svg>
+                </div>
+                <div class="popup-container" id="popup-1">
+                    <div class="popup">
+                        <div class="flex flex-col">
+                            <span class="flex items-center gap-3">
+                                <div class="flex text-white gap-0"><img _ngcontent-ng-c1469324842="" alt=""
+                                        class="ng-tns-c1469324842-29 ng-star-inserted"
+                                        src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
+                                        style=""></div>
+                                <div>Gemini</div>
+                            </span>
+                            <span class="flex justify-between items-center">
+                                <div class="flex gap-3 text-gray"><img _ngcontent-ng-c1469324842="" id="imgic" alt=""
+                                        class="ng-tns-c1469324842-29 ng-star-inserted"
+                                        src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
+                                        style="">Advanced Gemini</div>
+                                <div class="upgrade-button">Upgrade</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="right-header">
-                <button class="geminiadvbtn" id="geminiadvbtn">Try Gemini Advanced</button>
+                <button class="geminiadvbtn" id="geminiadvbtn"><img
+                        src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
+                        style="">Try Gemini Advanced</button>
                 <span class="material-symbols-outlined">
                     apps
                 </span>
@@ -151,6 +174,7 @@
         const displayContainer = document.getElementById("displayContainer");
         console.log(displayContainer);
 
+
         sendButton.addEventListener("click", runCode);
         formElement.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -189,14 +213,15 @@
                 let userProfileImg = document.createElement("img");
                 userProfileImg.src = "./gg.jpg";
                 userProfileImg.classList.add("user-img");
-                userProfileContainer.appendChild(userProfileImg);
+                //userProfileContainer.appendChild(userProfileImg);
 
                 let userInputDiv = document.createElement("div");
-                userInputDiv.innerHTML = `<strong>You:</strong> ${userInput}`;
+                userInputDiv.innerHTML = `<div class="user-input-div"><img src="./gg.jpg" class="user-img" >  ${userInput}</div>`;
 
                 let responseDiv = document.createElement("div");
                 responseDiv.classList.add("response-div");
-                responseDiv.innerHTML = `<strong>Gemini:</strong> ${plainText}`;
+                responseDiv.innerHTML = `<div class="response-div"><img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
+              style=""><strong>Gemini:</strong> ${plainText}</div>`;
 
                 displayContainer.appendChild(userProfileContainer);
                 displayContainer.appendChild(userInputDiv);
@@ -207,6 +232,29 @@
                 console.error("Error generating content:", error);
             }
         }
+        const geminiHeader = document.getElementById('gemini-1');
+        const popup = document.getElementById('popup-1');
+
+        geminiHeader.addEventListener('click', (e) => {
+            e.stopPropagation();
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!geminiHeader.contains(e.target)) {
+                popup.style.display = 'none';
+            }
+        });
+        const newbtn = document.querySelector('.new-chat');
+        newbtn.addEventListener('click', () => {
+            location.reload();
+
+        })
+        const advgeminibtn = document.getElementById('geminiadvbtn');
+        geminiadvbtn.addEventListener('click', () => {
+            location.reload();
+
+        })
     </script>
 </body>
 
