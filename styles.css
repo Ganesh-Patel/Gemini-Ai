@@ -75,15 +75,25 @@ body {
 
 .geminiadvbtn{
     background-color: #37393B;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
     color: white;
-    padding: 5px;
+    padding: 4px 8px;
     border-radius: 8px;
     border: none;
-    width: 10rem;
+    width: 12rem;
 }
 .geminiadvbtn:hover{
     background-color:aliceblue;
     color: #1e2126;
+}
+.response-div,.user-input-div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
 }
 .gemini-box {
     background-color: rgb(59, 68, 86);
@@ -135,6 +145,78 @@ body {
     display: flex;
     align-items: center;
     gap: 10px; 
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.left-header {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1px; /* Adjust the gap between the heading and the icon */
+}
+
+.popup-container {
+    display: none;
+    position: absolute;
+    top: 70px;/* Adjust this value based on your layout */
+    z-index: 100;
+    background: #333; /* Popup background color */
+    color: #fff; /* Popup text color */
+    padding: 10px; /* Popup padding */
+    border-radius: 10px; /* Popup border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Popup shadow */
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex.items-center {
+    align-items: center;
+}
+
+.flex.justify-between {
+    justify-content: space-between;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.gap-3 {
+    gap: 10px;
+}
+
+.text-gray {
+    color: #878787;
+}
+
+.upgrade-button {
+    background-color: #000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0 10px;
+    width: 80px;
+    height: 40px;
 }
 
 .center-div {
